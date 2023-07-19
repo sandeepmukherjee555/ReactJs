@@ -1,0 +1,30 @@
+[
+  {
+    "img": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/qamlqozfw2h479ggimis",
+    "name": "Biryani By Kilo",
+    "cusine": "Biryani, Hyderabadi",
+    "stars": 4,
+    "id": "ccref"
+  },
+  {
+    "img": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ajfqjytbxd6dajl7vxzl",
+    "name": "Quality Walls",
+    "cusine": "Ice Cream, World",
+    "stars": 3,
+    "id": "fece"
+  },
+  {
+    "img": " https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/56c9ab92bd79745fd152a30fa2525426",
+    "name": "Kfc Scacks",
+    "cusine": "Snacks, World",
+    "stars": 3,
+    "id": "erce"
+  },
+  {
+    "img": " https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/xuzh778frvo2c8oi81d2",
+    "name": "Amrapali Cafe",
+    "cusine": "Multi cusine ",
+    "stars": 5,
+    "id": "cfcer"
+  }
+]

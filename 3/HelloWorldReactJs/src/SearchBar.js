@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import data from './data.json';
 
-const searchRestaurants = (searchText) => {
-  return data.filter((res) =>
-    res.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+const searchRestaurants = (searchText, listOfRestaurants) => {
+  return listOfRestaurants.filter((res) =>
+    res?.data?.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
   );
   /* comparing multiple values*/
   // return data.filter(
@@ -13,14 +13,18 @@ const searchRestaurants = (searchText) => {
   // );
   // return data.filter((res) => res.stars > searchText);
 };
-const SearchBar = ({ setFilteredRestaurants }) => {
-  const [searchText, setSearchText] = useState();
+const SearchBar = ({ listOfRestaurants, setFilteredRestaurants }) => {
+  const [searchText, setSearchText] = useState('');
   return (
     <div className="search">
       <form
         onSubmit={(e) => {
           e.preventDefault(); //it should be always available when we are doing on Sumbit on forms
-          const filteredRestaurants = searchRestaurants(searchText);
+          const filteredRestaurants = searchRestaurants(
+            searchText,
+            listOfRestaurants
+          );
+
           setFilteredRestaurants(filteredRestaurants);
         }}
       >

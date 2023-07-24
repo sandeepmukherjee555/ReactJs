@@ -1,11 +1,15 @@
 import React, { createElement, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
-import CardComponent from './CardComponent';
-import data from './data.json';
-import { title } from './constants';
-import SearchBar from './SearchBar';
-import NoResultsComponent from './NoResultsComponent';
+import CardComponent from './components/CardComponent';
+import data from './utils/data.json';
+import { title } from './utils/constants';
+import SearchBar from './components/SearchBar';
+import NoResultsComponent from './components/NoResultsComponent';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import AboutUs from './components/AboutUs';
+import ErrrorComponent from './components/ErrorComponent';
+import RestaurantComponent from './components/RestaurantComponent';
 
 //old way
 // const CardContainer = () => {
@@ -31,7 +35,7 @@ const HeadingComponent = () => (
   </div>
 );
 
-const BodyComponent = () => {
+const SearchPageComponent = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   useEffect(() => {
@@ -65,9 +69,33 @@ const AppLayout = () => (
     {/* <Header /> */}
     {/* <JsxHeadingComponent /> */}
     <HeadingComponent />
-    <BodyComponent />
+    <Outlet />
+    {/* we can keep heading component as it is and we can render some route */}
+    {/* <SearchPageComponent /> */}
   </>
 );
 
+const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <AppLayout />,
+    errorElement: <ErrrorComponent />,
+    children: [
+      {
+        path: '/restaurant/:id',
+        element: <RestaurantComponent />
+      },
+      {
+        path: '/search',
+        element: <SearchPageComponent />
+      }
+    ]
+  },
+  {
+    path: '/about-us',
+    element: <AboutUs />
+  }
+]);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);

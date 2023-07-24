@@ -1,6 +1,8 @@
 const CardComponent = ({ restaurant }) => {
   // const { img, name, cusine, stars } = restaurant;
 
+  if (!restaurant?.data) return null;
+
   const { name, cuisines, avgRating, cloudinaryImageId } = restaurant?.data;
   return (
     <div id="card" className="card-class">

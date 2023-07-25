@@ -10,6 +10,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import AboutUs from './components/AboutUs';
 import ErrrorComponent from './components/ErrorComponent';
 import RestaurantComponent from './components/RestaurantComponent';
+import ProfileComponent from './components/ProfileComponent';
 
 //old way
 // const CardContainer = () => {
@@ -80,6 +81,7 @@ const appRouter = createBrowserRouter([
     path: '/',
     element: <AppLayout />,
     errorElement: <ErrrorComponent />,
+    // children will get rendered in Outlet inside AppLayout
     children: [
       {
         path: '/restaurant/:id',
@@ -88,12 +90,18 @@ const appRouter = createBrowserRouter([
       {
         path: '/search',
         element: <SearchPageComponent />
+      },
+      {
+        path: '/about-us',
+        element: <AboutUs />,
+        children: [
+          {
+            path: 'profile',
+            element: <ProfileComponent name={'Sandeep Mukherjee'} />
+          }
+        ]
       }
     ]
-  },
-  {
-    path: '/about-us',
-    element: <AboutUs />
   }
 ]);
 

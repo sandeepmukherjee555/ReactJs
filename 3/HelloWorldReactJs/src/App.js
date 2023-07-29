@@ -40,7 +40,7 @@ const SearchPageComponent = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   useEffect(() => {
-    fetchData();
+    // fetchData();
   }, []);
 
   async function fetchData() {
